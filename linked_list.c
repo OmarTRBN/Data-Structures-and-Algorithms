@@ -42,6 +42,21 @@ void insert_at_end(node_t **head, int data)
     temp->next = new_node;
 }
 
+// Get length of linked list
+int get_length(node_t *head)
+{
+    node_t *temp = head;
+    int length = 0;
+    // Iterate through the list until NULL is reached
+    while (temp != NULL)
+    {
+        temp = temp->next;
+        // Add one to length after each iteration
+        length++;
+    }
+    return length;
+}
+
 // Define a function to print the linked list
 void print_list(node_t *head)
 {
@@ -62,5 +77,6 @@ int main()
     insert_at_beginning(&head, 20);
     insert_at_end(&head, 30);
     print_list(head);
+    printf("Length of list is %d.\n", get_length(head));
     return 0;
 }
