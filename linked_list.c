@@ -10,6 +10,7 @@ typedef struct node
     struct node *next;
 } node_t;
 
+// Function declarations 
 int get_length(node_t **head);
 void insert_at_beginning(node_t **head, int data);
 void insert_at_end(node_t **head, int data);
@@ -19,7 +20,7 @@ void print_list(node_t **head);
 node_t *create_node(int data)
 {
     // Allocate space for new node, data = data and it will point to null
-    node_t *new_node = (node_t *)malloc(sizeof(node_t));
+    node_t *new_node = malloc(sizeof(node_t));
     new_node->data = data;
     new_node->next = NULL;
     return new_node;
@@ -28,7 +29,7 @@ node_t *create_node(int data)
 // Insert new node at the beginning of list
 void insert_at_beginning(node_t **head, int data)
 {
-    // '**head' is pointer to pointer, 'data' is value wanted to be stored
+    // '**head' is pointer to head pointer (*head), 'data' is value to be stored
     node_t *new_node = create_node(data);
     new_node->next = *head;
     // New 'head' of list will the newly created node
@@ -81,7 +82,7 @@ void insert_at_position(node_t **head, int position, int data)
 // Insert new node at end of list
 void insert_at_end(node_t **head, int data)
 {
-    // '**head' is pointer to pointer, 'data' is value wanted to be stored
+    // '**head' is pointer to pointer, 'data' is value to be stored
     node_t *new_node = create_node(data);
     // If list is empty
     if (*head == NULL)
